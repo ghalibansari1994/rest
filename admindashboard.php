@@ -27,9 +27,9 @@ if(isset($_SESSION['aname']))
 	<div class="ui stacked segment"><h2>Products</h2></div>
 	
 	<?php
-	$sqls = "SELECT * FROM product GROUP by product_name ASC , product_price ASC";
+	$sqls = "SELECT * FROM product";
 	$results = $conn->query($sqls);
-	$id=1;
+	
 	
 	if ($results->num_rows > 0)
 	{ ?>
@@ -40,7 +40,7 @@ if(isset($_SESSION['aname']))
 		while($rows = $results->fetch_assoc())
 		{
 			$uid=$rows["id"];
-			echo "<tr><td>".$id."</td><td>".$rows["username"]."</td><td>".$rows["product_name"]."</td><td>".$rows["product_quantity"]."</td>
+			echo "<tr><td>".$uid."</td><td>".$rows["username"]."</td><td>".$rows["product_name"]."</td><td>".$rows["product_quantity"]."</td>
 				<td>".$rows["product_price"]."</td><td>".$rows["approved"]."&nbsp;&nbsp;&nbsp;&nbsp;";
 			
 				
@@ -48,7 +48,7 @@ if(isset($_SESSION['aname']))
 				
 								
 				echo "</td></tr>";
-				$id++;
+				
 		}
 		echo "</tbody></table>";
 	} ?>

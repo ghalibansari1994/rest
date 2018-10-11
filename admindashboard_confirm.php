@@ -6,9 +6,10 @@ if(isset($_SESSION['aname']))
 {
 	
 	$uid=$_POST['id'];
-	$sql="UPDATE product SET approved = 'yes' WHERE product.id = '$uid'";
-	$result = mysqli_query($conn,$sql);
-
+	echo "$uid";
+	$sql="UPDATE product SET approved = 'yes' WHERE id = '$uid'";
+	$result = $conn->query($sql);
+echo "$result";
 	
 	
 	
